@@ -9,6 +9,10 @@ todoApp.Views.AddTodo = Backbone.Marionette.ItemView.extend({
 		this.render();
 	},
 
+	onRender: function () {
+		$('.todoApp').html(this.$el.fadeIn(500));
+	},
+
 	events: {
 	    'click #addBtn':    'addTodo',
 	    'click #backBtn':   'backToList'

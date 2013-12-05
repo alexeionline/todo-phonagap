@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="public/assets/libs/backbone-min.js"></script>
 		<script type="text/javascript" src="public/assets/libs/backbone.marionette.min.js"></script>
 		<script type="text/javascript" src="public/engine/todoApp.js"></script>
+		<script type="text/javascript" src="public/engine/modules/approuter.js"></script>
 		<script type="text/javascript" src="public/engine/modules/plugins/swipe.js"></script>
 		<script type="text/javascript" src="public/engine/modules/views/todo.js"></script>
 		<script type="text/javascript" src="public/engine/modules/views/addTodo.js"></script>
@@ -19,8 +20,16 @@
 		
 	</head>
 	<body>
+		<div class="todoApp"></div>
 		<script type="text/javascript">
+			
+			todoApp.addInitializer(function () {
+				new todoApp.Router;
+				Backbone.history.start();
+			});
+
 			todoApp.start();
+
 		</script>		
 	</body>
 </html>

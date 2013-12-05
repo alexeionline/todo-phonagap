@@ -12,6 +12,10 @@ todoApp.Views.Todos = Backbone.Marionette.CompositeView.extend({
 		//this.collection.on('fetch:success', this.render, this)
 	},
 
+	onRender: function () {
+		$('.todoApp').html(this.$el.fadeIn(500));
+	},
+
 	events: {
 		'click #addNewBtn': 'addTodo'
 	},

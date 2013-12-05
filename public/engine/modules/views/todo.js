@@ -1,26 +1,38 @@
-todoApp.Views.Todo = Backbone.Marionette.ItemView.extend({
+(function () {
+	todoApp.Views.Todo = Backbone.Marionette.ItemView.extend({
 
-    tagName:    'li',
-    className:  'todoItem',
-	template: _.template('<h3><%= description %></h3>'),
+		tagName:    'li',
+		className:  'todoItem',
+		template: _.template('<h3><%= description %></h3>'),
 
-	initialize: function () {
-	    this.bindEvents();
-	},
+		initialize: function () {
+		    this.bindEvents();
+		},
 
-	bindEvents: function () {
+		modelEvents: {
+			"change:done": "changeState"
+		},
 
-	    var self = this;
+		changeState: function () {
+			this.$el.toggleClass('done');
+		},
 
-	    todoApp.Plugins.Swipe(self.el, 
-	        function () {
-	                self.model.trigger('toggleStatus');
-	                self.$el.toggleClass('done');
-	        },
-	        function () {
-	                self.model.trigger('removeItem');
-	                self.$el.remove();
-	        });
-	}
+		bindEvents: function () {
 
-});
+			var thisView = this;
+
+			todoApp.Plugins.Swipe(thisView.el, 
+
+				function () {
+					thisView.model.trigger('toggleStatus');
+				},
+
+				function () {
+					thisView.model.trigger('removeItem');
+				}
+			);
+		}
+
+	});
+
+}).call(this);
