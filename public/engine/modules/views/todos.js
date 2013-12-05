@@ -8,8 +8,7 @@ todoApp.Views.Todos = Backbone.Marionette.CompositeView.extend({
 	template: _.template('<ul class="todoList"></ul><p><button id="addNewBtn" class="btn">Add new</button></p>'),
 
 	initialize: function () {
-		this.render();
-		//this.collection.on('fetch:success', this.render, this)
+		this.collection.on('fetch:success', this.render, this);
 	},
 
 	onRender: function () {
@@ -20,7 +19,7 @@ todoApp.Views.Todos = Backbone.Marionette.CompositeView.extend({
 		'click #addNewBtn': 'addTodo'
 	},
 
-	addTodo: function () {
+	addTodo: function (e) {
 		Backbone.history.navigate("add", {trigger: true});
 	}
 

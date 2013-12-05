@@ -3,14 +3,14 @@
 
 		tagName:    'li',
 		className:  'todoItem',
-		template: _.template('<h3><%= description %></h3>'),
+		template: _.template('<h3><%= DESCRIPTION %></h3>'),
 
 		initialize: function () {
 		    this.bindEvents();
 		},
 
 		modelEvents: {
-			"change:done": "changeState"
+			"change:ISDONE": "changeState"
 		},
 
 		changeState: function () {

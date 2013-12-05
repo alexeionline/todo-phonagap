@@ -8,18 +8,14 @@
 		},
 
 		todos: function () {
-			todoApp.todos = todoApp.todos || new todoApp.Collections.Todos;
-
 			var view = new todoApp.Views.Todos({
-				collection: todoApp.todos
+				collection: new todoApp.Collections.Todos
 			});
 		},
 
 		addTodo: function () {
-			todoApp.todos = todoApp.todos || new todoApp.Collections.Todos;
-
 			var view = new todoApp.Views.AddTodo({
-				collection: todoApp.todos
+				collection: new todoApp.Collections.Todos
 			});
 		}
 	});

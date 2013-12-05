@@ -1,18 +1,24 @@
 todoApp.Models.Todo = Backbone.Model.extend({
 
+	idAttribute: 'ID',
+
 	initialize: function () {
 		this.listenTo(this, 'removeItem',   this.removeItem);
 		this.listenTo(this, 'toggleStatus', this.toggleStatus);
 	},
 
 	toggleStatus: function () {
-		this.set({
-			done: !this.get('done')
-		});
+		this.save({
+			ISDONE: !this.get('ISDONE')
+		}, {patch: true});
 	},
 
 	removeItem: function () {
-		this.destroy();
+		console.log(this);
+
+		// this.destroy({complete: function(model, response) {
+		// 	alerty(1);
+		// }});
 	}
 
 });

@@ -24,8 +24,8 @@ todoApp.Views.AddTodo = Backbone.Marionette.ItemView.extend({
 
 		if (description) {
 
-			this.collection.add({
-				description: description
+			this.collection.create({
+				DESCRIPTION: description
 			});
 
 			Backbone.history.navigate("", {trigger: true});

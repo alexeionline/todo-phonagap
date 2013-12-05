@@ -1,16 +1,16 @@
 todoApp.Collections.Todos = Backbone.Collection.extend({
 
-	//url: '/todos',
+	url: 'http://ziostlabs.com/rest/todoapi/todos/',
 
 	model: todoApp.Models.Todo,
 
 	initialize: function () {
 	
-		// this.fetch({
-		// 	success: function (collection) {
-		// 		collection.trigger('fetch:success')
-		// 	}
-		// });
+		this.fetch({
+			success: function (collection) {
+				collection.trigger('fetch:success')
+			}
+		});
 		
 	}
 
