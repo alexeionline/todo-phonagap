@@ -4,14 +4,8 @@ todoApp.Collections.Todos = Backbone.Collection.extend({
 
 	model: todoApp.Models.Todo,
 
-	initialize: function () {
-	
-		this.fetch({
-			success: function (collection) {
-				collection.trigger('fetch:success')
-			}
-		});
-		
+	initialize: function () {	
+		this.fetch({reset: true});
 	}
 
 })

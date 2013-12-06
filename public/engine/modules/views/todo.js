@@ -17,6 +17,12 @@
 			this.$el.toggleClass('done');
 		},
 
+		onRender: function () {
+			if (this.model.get('ISDONE')) {
+				this.$el.addClass('done');
+			}
+		},
+
 		bindEvents: function () {
 
 			var thisView = this;

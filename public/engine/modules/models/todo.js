@@ -2,6 +2,8 @@ todoApp.Models.Todo = Backbone.Model.extend({
 
 	idAttribute: 'ID',
 
+	urlRoot: 'http://ziostlabs.com/rest/todoapi/todos/',
+
 	initialize: function () {
 		this.listenTo(this, 'removeItem',   this.removeItem);
 		this.listenTo(this, 'toggleStatus', this.toggleStatus);
@@ -10,15 +12,11 @@ todoApp.Models.Todo = Backbone.Model.extend({
 	toggleStatus: function () {
 		this.save({
 			ISDONE: !this.get('ISDONE')
-		}, {patch: true});
+		}, {patch: true, wait: true});
 	},
 
 	removeItem: function () {
-		console.log(this);
-
-		// this.destroy({complete: function(model, response) {
-		// 	alerty(1);
-		// }});
+		this.destroy();
 	}
 
 });

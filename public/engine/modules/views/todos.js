@@ -8,11 +8,11 @@ todoApp.Views.Todos = Backbone.Marionette.CompositeView.extend({
 	template: _.template('<ul class="todoList"></ul><p><button id="addNewBtn" class="btn">Add new</button></p>'),
 
 	initialize: function () {
-		this.collection.on('fetch:success', this.render, this);
+		this.listenTo(this.collection, 'reset', this.render);
 	},
 
 	onRender: function () {
-		$('.todoApp').html(this.$el.fadeIn(500));
+		todoApp.appContainer.html(this.$el.fadeIn(500));
 	},
 
 	events: {

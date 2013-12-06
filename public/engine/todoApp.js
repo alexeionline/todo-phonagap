@@ -4,5 +4,6 @@ _.extend(todoApp, {
 	Views:          {},
 	Models:         {},
 	Collections:    {},
-	Plugins:        {}
+	Plugins:        {},
+	appContainer: 	$('.todoApp')
 });
